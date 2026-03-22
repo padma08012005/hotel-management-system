@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hotel Ratings</title>
+</head>
+<body>
+
+<h2>⭐ Hotel Ratings</h2>
+
+{% if ratings %}
+    {% for hotel, rating in ratings.items() %}
+        <p><b>{{hotel}}</b> - ⭐ {{rating}} / 5</p>
+    {% endfor %}
+{% else %}
+    <p>No ratings available.</p>
+{% endif %}
+
+<br>
+<a href="/thankyou">Finish</a>
+
+</body>
+</html><div class="container mt-4">
+<h2>Recommended Hotels in {{ city }}</h2>
+
+{% for hotel in hotels %}
+<div class="card mt-3 p-3">
+<h4>{{ hotel.name }}</h4>
+<p>Price: {{ hotel.price }}</p>
+<p>Rating: {{ hotel.rating }}</p>
+<a href="/details/{{ hotel.name }}" class="btn btn-success">View Details</a>
+</div>
+{% endfor %}
+</div>

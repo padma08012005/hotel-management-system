@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recommended Hotels</title>
+</head>
+<body>
+    <h2>Recommended Hotels in {{ city }}</h2>
+    <p>Filtered by features: {{ features }}</p>
+    hotels_data = {
+    "New York": [
+        {"name": "Hotel A", "features": ["pool", "wifi"], "rating": 4.5},
+        {"name": "Hotel B", "features": ["wifi", "gym"], "rating": 4.0},
+        {"name": "Hotel C", "features": ["spa", "wifi"], "rating": 4.8},
+    ],
+    "Paris": [
+        {"name": "Hotel D", "features": ["spa", "wifi"], "rating": 4.7},
+        {"name": "Hotel E", "features": ["gym"], "rating": 4.2},
+    ],
+    }
+    <ul>
+        {% for hotel in recommended %}
+            <li>{{ hotel.name }} - Rating: {{ hotel.rating }} - Features: {{ hotel.features }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('select_city') }}">Back</a>
+</body>
+</html>

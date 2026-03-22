@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Choose Preferences</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-info bg-opacity-10">
+
+<div class="container mt-5">
+    <div class="card p-4 shadow">
+        <h2>Select City & Features</h2>
+
+        <form method="POST">
+
+            <label class="mt-3">Select City:</label>
+                <select name="city" class="form-select mb-3">
+    <option>Chennai</option>
+    <option>Mumbai</option>
+    <option>Hyderabad</option>
+    <option>Delhi</option>
+    <option>Kolkata</option>
+    <option>Bangalore</option>
+    <option>Jaipur</option>
+    <option>Goa</option>
+    <option>Pune</option>
+</select>
+
+            <label>Select Features:</label><br>
+            <input type="checkbox" name="features" value="AC"> AC
+            <input type="checkbox" name="features" value="Non-AC"> Non-AC
+            <input type="checkbox" name="features" value="Spa"> Spa
+            <input type="checkbox" name="features" value="Hot Water"> Hot Water
+            <input type="checkbox" name="features" value="Free WiFi"> Free WiFi
+            <input type="checkbox" name="features" value="Swimming Pool"> Swimming Pool
+            <input type="checkbox" name="features" value="Restaurant"> Restaurant
+
+            <br><br>
+            <button class="btn btn-success">Find Hotels</button>
+        </form>
+    </div>
+</div>
+<head>
+    <title>Hotels</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <h2 class="mb-4">Available Hotels</h2>
+
+    <div class="row">
+        {% for hotel in hotels %}
+        <div class="col-md-4">
+            <div class="card shadow p-3 mb-4">
+                <h4>{{ hotel.name }}</h4>
+                <p>City: {{ hotel.city }}</p>
+                <p>Price: ₹{{ hotel.price }}</p>
+                <p>Rating: ⭐ {{ hotel.rating }}</p>
+
+                <a href="/booking/{{ hotel.name }}" class="btn btn-warning w-100">
+                    Book Now
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+</body>
+</html>
